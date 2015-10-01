@@ -1,0 +1,39 @@
+<template name="datasets">
+  <div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      {{#each contexts}}
+        <li role="presentation"><a href="#{{this}}" aria-controls="home" role="tab" data-toggle="tab">{{this}}</a></li>
+      {{/each}}
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      {{#each contexts}}
+        <div role="tabpanel" class="tab-pane" id="{{this}}">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Hierarchy</th>
+                <th>Downloaded</th>
+              </tr>
+            </thead>
+            <tbody>
+            {{#each datasets this}}
+              <tr>
+                <td>{{names.en}}</td>
+                <td>{{geographicalHierarchy}}</td>
+                <td><input type="radio" checked={{downloaded}} data-action="download"></td>
+              </tr>
+            {{/each}}
+            </tbody>
+          </table>
+        </div>
+      {{/each}}
+    </div>
+
+  </div>
+
+</template>
