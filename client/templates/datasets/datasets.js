@@ -14,7 +14,7 @@ Template.datasets.helpers({
     return Template.instance().contexts.get()
   },
   datasets: function (context) {
-    return Datasets.find({ context })
+    return Datasets.find({ context, geographicalHierarchy: "2014WARDH" })
   }
 })
 
